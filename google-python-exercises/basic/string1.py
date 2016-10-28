@@ -24,8 +24,12 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
+    if count >= 10:
+        return 'Number of donuts: %s' %("many")
+    else:
+        return 'Number of donuts: %d' %(count)
   # +++your code here+++
-  return 'Number of donuts: %d' %(count)
+
 
 
 # B. both_ends
@@ -34,10 +38,13 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
+    if len(s) >= 2 :
+        a = s[0:2]
+        b = s[len(s) - 2:]
+        return a + b
+    else:
+        return ''
   # +++your code here+++
-  a = s[0:2]
-  b = s[len(s) - 2:len(s) - 1]
-  return a + b
 
 # C. fix_start
 # Given a string s, return a string
@@ -51,7 +58,7 @@ def both_ends(s):
 def fix_start(s):
   # +++your code here+++
   first = s[0]
-  noHead = s[1]
+  noHead = s[1:]
   replaced = noHead.replace(first,'*');
 
   return first + replaced
@@ -66,13 +73,13 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
   # +++your code here+++
-  twoA = a[0:2]
-  twoB = b[0:2]
+  firstwoA = a[0:2]
+  firstwoB = b[0:2]
 
-  lastA = a[2:]
-  lastB = b[2:]
+  restA = a[2:]
+  restB = b[2:]
 
-  return twoB + lastA + ' ' + twoA + lastB
+  return firstwoB + restA + ' ' + firstwoA + restB
 
 
 # Provided simple test() function used in main() to print
