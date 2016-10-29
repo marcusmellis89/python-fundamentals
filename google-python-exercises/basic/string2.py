@@ -17,8 +17,13 @@
 # Return the resulting string.
 def verbing(s):
   # +++your code here+++
-  return
-
+  if len(s) >= 3 :
+      if s[-3:] != 'ing':
+          return s + 'ing'
+      else:
+          return s + 'ly'
+  else:
+      return s
 
 # E. not_bad
 # Given a string, find the first appearance of the
@@ -30,6 +35,7 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
   # +++your code here+++
+
   return
 
 
