@@ -34,9 +34,29 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
+  start = False
+  end = False
 
-  return
+  i = 0
+  # +++your code here+++
+  while i < (len(s) - 2) :
+      if s[i] == 'b' and s[i+1] == 'a' and s[i+2] == 'd' and start != False:
+          end = i + 2
+      elif s[i] == 'b' and s[i+1] == 'a' and s[i+2] == 'd' and start == False:
+          return s
+      elif s[i] == 'n' and s[i+1] == 'o' and s[i+2] == 't' and end == False:
+          start = i
+      i = i + 1
+
+  if start != False and end != False:
+      front = s[:start]
+      middle = 'good'
+      back = s[end+1:]
+      return front + middle + back
+
+  return s
+
+
 
 
 # F. front_back
@@ -47,9 +67,24 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
+  import math
   # +++your code here+++
-  return
+  if (len(a)%2 == 0) :
+      middle_a = (len(a)/2) - 1
+  else:
+      middle_a = int(math.floor(len(a)/2))
 
+  if(len(b)%2 == 0):
+      middle_b = (len(b)/2) - 1
+  else:
+      middle_b = int(math.floor(len(b)/2))
+
+  front_a = a[: (middle_a + 1)]
+  back_a = a[(middle_a + 1):]
+  front_b = b[:(middle_b + 1)]
+  back_b = b[(middle_b + 1):]
+
+  return front_a + front_b + back_a + back_b
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
